@@ -22,13 +22,19 @@ def hello_world(msg_val):
 
 @manager.command
 def save():
-    user = User('ming', '110@qq.com')
+    # user = User('ming', '110@qq.com')
+
+    # 使用ORM保存
+    user = User(name='zzy', email='1102@qq.com')
     user.save()
 
 
 @manager.command
 def query_users():
-    users = User.query_users()
+    # users = User.query_users()
+
+    # 使用ORM查询
+    users = User.objects.all()
     for user in users:
         print user
 
