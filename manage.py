@@ -3,6 +3,7 @@
 
 from flask_script import Manager
 from app import app
+from models import User
 
 # 实例化
 manager = Manager(app)
@@ -17,6 +18,19 @@ def hello():
 @manager.option('-m', '--msg', dest='msg_val', default='张志原')
 def hello_world(msg_val):
     print 'hello ' + msg_val
+
+
+@manager.command
+def save():
+    user = User('ming', '110@qq.com')
+    user.save()
+
+
+@manager.command
+def query_users():
+    users = User.query_users()
+    for user in users:
+        print user
 
 
 if __name__ == "__main__":
