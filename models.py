@@ -4,7 +4,7 @@
 import pymongo
 
 
-# 返回一个 collection
+# 返回一个 collection,
 def get_coll():
     client = pymongo.MongoClient('127.0.0.1', 27017)
     db = client.test
